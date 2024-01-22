@@ -1,0 +1,49 @@
+server:
+  port: 6001
+
+jwt:
+  secret: Key#SuperSecret$PolyglotTest#JavaMicroservices#940527000
+
+spring:
+  application:
+    name: appgateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
+      routes:      
+      - id: appsecurity
+        uri: http://localhost:81
+        predicates:
+          - Path=/security/**
+        filters:
+          - StripPrefix=1
+      - id: appinvoice
+        uri: http://localhost:82
+        predicates:
+          - Path=/invoice/**
+        filters:
+          - StripPrefix=1
+          - JwtAuthenticationFilter
+      - id: apppay
+        uri: http://localhost:83
+        predicates:
+          - Path=/pay/**
+        filters:
+          - StripPrefix=1
+          - JwtAuthenticationFilter
+      - id: apptransaction
+        uri: http://localhost:84
+        predicates:
+          - Path=/transaction/**
+        filters:
+          - StripPrefix=1
+          - JwtAuthenticationFilter
+           
+  
