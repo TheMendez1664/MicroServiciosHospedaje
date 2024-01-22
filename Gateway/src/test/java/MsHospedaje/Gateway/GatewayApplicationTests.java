@@ -1,4 +1,4 @@
-package POLYGLOT.MS.TEST.Gateway;
+package MsHospedaje.Gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
