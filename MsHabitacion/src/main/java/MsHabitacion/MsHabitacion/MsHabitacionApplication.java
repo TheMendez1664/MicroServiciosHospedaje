@@ -8,7 +8,7 @@ public class MsHabitacionApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MsHabitacionApplication.class, args);
-		System.err.println("correr");
+		System.err.println("corriendo");
 	}
 
 }
