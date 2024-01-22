@@ -1,10 +1,10 @@
-package MsHospedaje.MsCliente;
+package MsPago.MsPago;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsClienteApplicationTests {
+class MsPagoApplicationTests {
 
 	@Test
 	void contextLoads() {

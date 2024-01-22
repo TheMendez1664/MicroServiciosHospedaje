@@ -1,13 +1,13 @@
-package MsHospedaje.MsCliente;
+package MsReservaHabitacion.MsReservaHabitacion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsClienteApplication {
+public class MsReservaHabitacionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsClienteApplication.class, args);
+		SpringApplication.run(MsReservaHabitacionApplication.class, args);
 	}
 
 }

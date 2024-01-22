@@ -1,13 +1,13 @@
-package MsHospedaje.MsReservaHabitacion;
+package MsPago.MsPago;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsReservaHabitacionApplication {
+public class MsPagoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MsReservaHabitacionApplication.class, args);
+		SpringApplication.run(MsPagoApplication.class, args);
 	}
 
 }
