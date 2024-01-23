@@ -1,0 +1,26 @@
+12:59:36.954 [main] INFO  M.MsCliente.MsClienteApplication - Starting MsClienteApplication using Java 17.0.9 with PID 16176 (C:\Users\tineo\Desktop\ProyectoTaller vs4.1\MsCliente\target\classes started by tineo in C:\Users\tineo\Desktop\ProyectoTaller vs4.1)
+12:59:36.958 [main] INFO  M.MsCliente.MsClienteApplication - No active profile set, falling back to 1 default profile: "default"
+12:59:38.510 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:59:38.854 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 285 ms. Found 1 JPA repository interface.
+12:59:40.005 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 83 (http)
+12:59:40.020 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-83"]
+12:59:40.025 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:59:40.025 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+12:59:40.131 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:59:40.133 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3088 ms
+12:59:40.715 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:59:41.195 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 3b2c5167-3cf1-4767-941e-fb6018e7efca
+12:59:41.198 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:59:41.295 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:59:41.403 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+12:59:41.471 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+12:59:41.855 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:59:42.927 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:59:42.932 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:59:43.471 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+12:59:43.966 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-83"]
+12:59:44.004 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 83 (http) with context path ''
+12:59:44.025 [main] INFO  M.MsCliente.MsClienteApplication - Started MsClienteApplication in 7.476 seconds (process running for 7.924)
+12:59:57.615 [http-nio-83-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+12:59:57.619 [http-nio-83-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+12:59:57.626 [http-nio-83-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
