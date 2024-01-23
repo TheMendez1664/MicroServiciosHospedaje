@@ -1,7 +1,5 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "interactive",
-    "java.project.referencedLibraries": [
-        "src/main/java/MsHospedaje/MsUsuario"
-    ]
+    
 }
