@@ -2,6 +2,6 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.referencedLibraries": [
-        "MsUsuario/src/main/java"
+        "MsUsuario/src/main/java/MsHospedaje/MsUsuario"
     ]
 }
