@@ -1,5 +1,11 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "interactive",
-    
+    "java.project.referencedLibraries": [
+        "MsUsuario/src/main/java",
+        "MsHabitacion/src/main/java",
+        "MsCliente/src/main/java",
+        "MsReservaHabitacion/src/main/java"
+        // Añade otras rutas según sea necesario
+    ]
 }
