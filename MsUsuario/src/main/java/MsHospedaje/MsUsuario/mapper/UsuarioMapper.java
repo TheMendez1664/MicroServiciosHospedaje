@@ -1,23 +1,25 @@
-// package MsHospedaje.MsUsuario.mapper;
+package MsHospedaje.MsUsuario.mapper;
 
-// import MsHospedaje.MsUsuario.dto.UsuarioDTO;
-// import MsHospedaje.MsUsuario.model.modelUsuario;
+import MsHospedaje.MsUsuario.dto.UsuarioDTO;
+import MsHospedaje.MsUsuario.model.modelUsuario;
+import org.springframework.stereotype.Component;
 
-// public class UsuarioMapper {
+@Component
+public class UsuarioMapper {
 
-//     public UsuarioDTO toDTO(modelUsuario usuario) {
-//         UsuarioDTO dto = new UsuarioDTO();
-//         dto.setUsuario(usuario.getIdUsuario());
-//         dto.setPassword(usuario.getPassword());
-//         dto.setRol(usuario.getRol());
-//         return dto;
-//     }
+    public UsuarioDTO toDTO(modelUsuario usuario) {
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setIdUsuario(usuario.getIdUsuario());
+        dto.setUsuario(usuario.getUsuario());
+        dto.setClave(usuario.getClave());
+        return dto;
+    }
 
-//     public UsuarioDTO toEntity(UsuarioDTO dto) {
-//         modelUsuario usuario = new modelUsuario();
-//         usuario.setUsername(dto.getUsername());
-//         usuario.setPassword(dto.getPassword());
-//         usuario.setRol(dto.getRol());
-//         return usuario;
-//     }
-// }
+    public modelUsuario toEntity(UsuarioDTO dto) {
+        modelUsuario usuario = new modelUsuario();
+        usuario.setIdUsuario(dto.getIdUsuario());
+        usuario.setUsuario(dto.getUsuario());
+        usuario.setClave(dto.getClave());
+        return usuario;
+    }
+}

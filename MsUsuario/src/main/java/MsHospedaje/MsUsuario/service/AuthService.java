@@ -1,6 +1,5 @@
 package MsHospedaje.MsUsuario.service;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import MsHospedaje.MsUsuario.model.modelUsuario;
 import MsHospedaje.MsUsuario.repository.IAuthRepository;
-
 
 @Service
 public class AuthService {
@@ -34,6 +32,7 @@ public class AuthService {
         if (usuarioExistente != null) {
             usuarioExistente.setUsuario(usuarioActualizado.getUsuario());
             usuarioExistente.setClave(usuarioActualizado.getClave());
+            usuarioExistente.setRol(usuarioActualizado.getRol());
             return authRepository.save(usuarioExistente);
         } else {
             return null;
@@ -45,5 +44,4 @@ public class AuthService {
         authRepository.deleteById(id);
     }
 
-  
 }
