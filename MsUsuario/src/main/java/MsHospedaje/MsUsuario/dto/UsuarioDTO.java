@@ -1,18 +1,19 @@
 package MsHospedaje.MsUsuario.dto;
- 
-import java.io.Serializable;
- 
-public class AuthRequest implements Serializable {
 
+import java.io.Serializable;
+
+public class UsuarioDTO implements Serializable {
+    
     private static final long serialVersionUID = 1L;
     private String username;
     private String password;
- 
-    public AuthRequest() {
+    private String rol;
+
+    public UsuarioDTO() {
  
     }
  
-    public AuthRequest(String username, String password) {
+    public UsuarioDTO(String username, String password) {
         this.setUsername(username);
         this.setPassword(password);
     }
@@ -32,6 +33,13 @@ public class AuthRequest implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
 }
-
-
