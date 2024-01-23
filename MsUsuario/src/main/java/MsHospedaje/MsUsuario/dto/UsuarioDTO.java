@@ -1,45 +1,44 @@
 package MsHospedaje.MsUsuario.dto;
 
-import java.io.Serializable;
+public class UsuarioDTO {
 
-public class UsuarioDTO implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
-    private String username;
-    private String password;
-    private String rol;
+    private int idUsuario;
+    private String usuario;
+    private String clave;
 
     public UsuarioDTO() {
- 
-    }
- 
-    public UsuarioDTO(String username, String password) {
-        this.setUsername(username);
-        this.setPassword(password);
-    }
- 
-    public String getPassword() {
-        return password;
-    }
- 
-    public void setPassword(String password) {
-        this.password = password;
-    }
- 
-    public String getUsername() {
-        return username;
-    }
- 
-    public void setUsername(String username) {
-        this.username = username;
+        // Constructor vacío necesario para algunas operaciones de mapeo
     }
 
-    public String getRol() {
-        return rol;
+    public UsuarioDTO(int idUsuario, String usuario, String clave) {
+        this.idUsuario = idUsuario;
+        this.usuario = usuario;
+        this.clave = clave;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    // Puedes agregar métodos adicionales si es necesario
 }
