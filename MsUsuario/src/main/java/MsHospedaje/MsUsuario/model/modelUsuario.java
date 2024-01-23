@@ -24,6 +24,17 @@ public class modelUsuario {
     @Column(name="clave")
     public String clave;
 
+    @Column(name = "rol")
+    public String rol;
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     public int getIdUsuario() {
         return idUsuario;
     }
