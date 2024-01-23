@@ -13,14 +13,17 @@ public class AccessModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "IdUsuario")
     private int id_user;
 
-    @Column(name = "username")
+    @Column(name = "usuario")
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "contraseña")
     private String password;
+
+    @Column(name = "rol")
+    public String rol;
 
     // getters y setters
 
@@ -47,4 +50,14 @@ public class AccessModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
 }
