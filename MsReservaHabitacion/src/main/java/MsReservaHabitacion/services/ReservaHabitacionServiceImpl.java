@@ -1,11 +1,11 @@
-package MsReservaHabitacion.MsReservaHabitacion.services;
+package MsReservaHabitacion.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import MsReservaHabitacion.MsReservaHabitacion.dto.ReservaHabitacionDTO;
-import MsReservaHabitacion.MsReservaHabitacion.model.ReservaHabitacion;
-import MsReservaHabitacion.MsReservaHabitacion.repository.ReservaHabitacionRepository;
+import MsReservaHabitacion.dto.ReservaHabitacionDTO;
+import MsReservaHabitacion.model.ReservaHabitacion;
+import MsReservaHabitacion.repository.ReservaHabitacionRepository;
 
 @Service
 public class ReservaHabitacionServiceImpl implements ReservaHabitacionService {
