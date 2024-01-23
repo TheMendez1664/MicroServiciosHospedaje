@@ -1,17 +1,12 @@
 package MsHabitacion.MsHabitacion.controller;
 
-import java.util.List;
 
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import MsHabitacion.MsHabitacion.ApiRes.ApiResponse;
 import MsHabitacion.MsHabitacion.dto.HabitacionDTO;
 import MsHabitacion.MsHabitacion.services.HabitacionService;
 
@@ -25,31 +20,44 @@ public class HabitacionController {
         this.habitacionService = habitacionService;
     }
 
-    /**
-     * @return
-     */
     @GetMapping("/habitaciones")
-    public ResponseEntity<List<HabitacionDTO>> getAllHabitaciones() {
-        List<HabitacionDTO> habitaciones = habitacionService.getAllHabitaciones();
-        return new ResponseEntity<>(habitaciones, HttpStatus.OK);
+    public ResponseEntity<ApiResponse<List<HabitacionDTO>>> getAllHabitaciones() {
+        try {
+            List<HabitacionDTO> habitaciones = habitacionService.getAllHabitaciones();
+            return ResponseEntity.ok(ApiResponse.success(habitaciones));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ApiResponse.error("Error al obtener las habitaciones"));
+        }
     }
 
     @GetMapping("/habitacion/{id}")
-    public ResponseEntity<HabitacionDTO> getHabitacionById(@PathVariable Long id) {
-        HabitacionDTO habitacion = habitacionService.getHabitacionById(id);
-        return (habitacion != null) ? new ResponseEntity<>(habitacion, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<ApiResponse<HabitacionDTO>> getHabitacionById(@PathVariable Long id) {
+        try {
+            HabitacionDTO habitacion = habitacionService.getHabitacionById(id);
+            return (habitacion != null) ? ResponseEntity.ok(ApiResponse.success(habitacion))
+                    : ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error("Habitación no encontrada"));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ApiResponse.error("Error al obtener la habitación"));
+        }
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<HabitacionDTO> createHabitacion(@RequestBody HabitacionDTO habitacionDTO) {
-        HabitacionDTO nuevaHabitacion = habitacionService.createHabitacion(habitacionDTO);
-        return new ResponseEntity<>(nuevaHabitacion, HttpStatus.CREATED);
+    public ResponseEntity<ApiResponse<HabitacionDTO>> createHabitacion(@RequestBody HabitacionDTO habitacionDTO) {
+        try {
+            HabitacionDTO nuevaHabitacion = habitacionService.createHabitacion(habitacionDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.success(nuevaHabitacion));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ApiResponse.error("Error al crear la habitación"));
+        }
     }
 
     @DeleteMapping("/habitacion/{id}")
     public ResponseEntity<Void> deleteHabitacion(@PathVariable Long id) {
-        habitacionService.deleteHabitacion(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            habitacionService.deleteHabitacion(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }

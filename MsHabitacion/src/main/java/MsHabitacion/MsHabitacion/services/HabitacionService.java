@@ -1,9 +1,10 @@
 package MsHabitacion.MsHabitacion.services;
-
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,30 +16,48 @@ import MsHabitacion.MsHabitacion.repository.HabitacionRepository;
 public class HabitacionService {
 
     private final HabitacionRepository habitacionRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public HabitacionService(HabitacionRepository habitacionRepository) {
+    public HabitacionService(HabitacionRepository habitacionRepository, ModelMapper modelMapper) {
         this.habitacionRepository = habitacionRepository;
+        this.modelMapper = modelMapper;
     }
 
     public List<HabitacionDTO> getAllHabitaciones() {
-        Iterable<Habitacion> habitaciones = habitacionRepository.findAll();
-        return convertToDTOList(habitaciones);
+        try {
+            Iterable<Habitacion> habitaciones = habitacionRepository.findAll();
+            return convertToDTOList(habitaciones);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al obtener las habitaciones", e);
+        }
     }
 
     public HabitacionDTO getHabitacionById(Long id) {
-        Habitacion habitacion = habitacionRepository.findById(id).orElse(null);
-        return (habitacion != null) ? convertToDTO(habitacion) : null;
+        try {
+            Optional<Habitacion> habitacionOptional = habitacionRepository.findById(id);
+            return habitacionOptional.map(this::convertToDTO).orElse(null);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al obtener la habitación", e);
+        }
     }
 
     public HabitacionDTO createHabitacion(HabitacionDTO nuevaHabitacionDTO) {
-        Habitacion nuevaHabitacion = convertToEntity(nuevaHabitacionDTO);
-        Habitacion habitacionCreada = habitacionRepository.save(nuevaHabitacion);
-        return convertToDTO(habitacionCreada);
+        try {
+            Habitacion nuevaHabitacion = convertToEntity(nuevaHabitacionDTO);
+            Habitacion habitacionCreada = habitacionRepository.save(nuevaHabitacion);
+            return convertToDTO(habitacionCreada);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear la habitación", e);
+        }
     }
 
     public void deleteHabitacion(Long id) {
-        habitacionRepository.deleteById(id);
+        try {
+            habitacionRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Error al eliminar la habitación", e);
+        }
     }
 
     private List<HabitacionDTO> convertToDTOList(Iterable<Habitacion> habitaciones) {
@@ -48,20 +67,10 @@ public class HabitacionService {
     }
 
     private HabitacionDTO convertToDTO(Habitacion habitacion) {
-        return new HabitacionDTO(
-                habitacion.getNumeroHabitacion(),
-                habitacion.getTipoHabitacion(),
-                habitacion.getPrecio(),
-                habitacion.isOcupada()
-        );
+        return modelMapper.map(habitacion, HabitacionDTO.class);
     }
 
     private Habitacion convertToEntity(HabitacionDTO habitacionDTO) {
-        Habitacion entity = new Habitacion();
-        entity.setNumeroHabitacion(habitacionDTO.getNumeroHabitacion());
-        entity.setTipoHabitacion(habitacionDTO.getTipoHabitacion());
-        entity.setPrecio(habitacionDTO.getPrecio());
-        entity.setOcupada(habitacionDTO.isOcupada());
-        return entity;
+        return modelMapper.map(habitacionDTO, Habitacion.class);
     }
 }
