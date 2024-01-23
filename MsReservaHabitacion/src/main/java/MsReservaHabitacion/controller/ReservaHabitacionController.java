@@ -1,4 +1,4 @@
-package MsReservaHabitacion.MsReservaHabitacion.controller;
+package MsReservaHabitacion.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import MsReservaHabitacion.MsReservaHabitacion.dto.ReservaHabitacionDTO;
-import MsReservaHabitacion.MsReservaHabitacion.model.ReservaHabitacion;
-import MsReservaHabitacion.MsReservaHabitacion.services.ReservaHabitacionService;
+import MsReservaHabitacion.dto.ReservaHabitacionDTO;
+import MsReservaHabitacion.model.ReservaHabitacion;
+import MsReservaHabitacion.services.ReservaHabitacionService;
+
+
 
 @RestController
 @RequestMapping("/reservas-habitacion")

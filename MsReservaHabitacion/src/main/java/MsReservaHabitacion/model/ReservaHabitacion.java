@@ -1,22 +1,30 @@
-package MsReservaHabitacion.MsReservaHabitacion.dto;
+package MsReservaHabitacion.model;
 
-import java.io.Serializable;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDate;
 
+@Document(collection = "ReservaHabitacion") // Nombre de la colección en MongoDB
+public class ReservaHabitacion {
 
-public class ReservaHabitacionDTO implements Serializable {
+    @Id
+    private String id;
 
     private Long idCliente;
     private Long idHabitacion;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
 
+    // Constructores, getters y setters
+
     // Constructor vacío
-    public ReservaHabitacionDTO() {
+    public ReservaHabitacion() {
     }
 
     // Constructor con parámetros
-    public ReservaHabitacionDTO(Long idCliente, Long idHabitacion, LocalDate fechaInicio, LocalDate fechaFin) {
+    public ReservaHabitacion(Long idCliente, Long idHabitacion, LocalDate fechaInicio, LocalDate fechaFin) {
         this.idCliente = idCliente;
         this.idHabitacion = idHabitacion;
         this.fechaInicio = fechaInicio;
@@ -24,6 +32,14 @@ public class ReservaHabitacionDTO implements Serializable {
     }
 
     // Getters y setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Long getIdCliente() {
         return idCliente;
     }
@@ -56,5 +72,15 @@ public class ReservaHabitacionDTO implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    // Otros getters y setters según necesidad
+    // Método toString
+    @Override
+    public String toString() {
+        return "ReservaHabitacion{" +
+                "id='" + id + '\'' +
+                ", idCliente=" + idCliente +
+                ", idHabitacion=" + idHabitacion +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
+                '}';
+    }
 }

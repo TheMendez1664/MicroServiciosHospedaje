@@ -1,7 +1,7 @@
-package MsReservaHabitacion.MsReservaHabitacion.services;
+package MsReservaHabitacion.services;
 
-import MsReservaHabitacion.MsReservaHabitacion.dto.ReservaHabitacionDTO;
-import MsReservaHabitacion.MsReservaHabitacion.model.ReservaHabitacion;
+import MsReservaHabitacion.dto.ReservaHabitacionDTO;
+import MsReservaHabitacion.model.ReservaHabitacion;
 
 public interface ReservaHabitacionService {
 
